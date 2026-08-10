@@ -1,0 +1,348 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    background: #a2d6ed;
+    color: #2f2f2f;
+    font-family: Georgia, serif;
+}
+
+
+/* =========================
+   WORDLE PAGE
+   ========================= */
+
+.game {
+    min-height: 100vh;
+    padding: 60px 15px 30px;
+    text-align: center;
+}
+
+
+.game h1 {
+    font-size: 38px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+
+.subtitle {
+    color: #777;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+
+/* WORDLE BOARD */
+
+#board {
+    width: 300px;
+    margin: 0 auto 20px;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 6px;
+}
+
+
+.box {
+    width: 54px;
+    height: 54px;
+
+    border: 1px solid #aaa;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+/* WORDLE COLOURS */
+
+.correct {
+    background: #8caa82;
+    border-color: #8caa82;
+    color: white;
+}
+
+
+.present {
+    background: #c5a866;
+    border-color: #c5a866;
+    color: white;
+}
+
+
+.wrong {
+    background: #999;
+    border-color: #999;
+    color: white;
+}
+
+
+/* MESSAGE */
+
+#message {
+    min-height: 25px;
+    margin: 15px 0;
+
+    font-size: 15px;
+    color: #666;
+}
+
+
+/* =========================
+   PHONE KEYBOARD
+   ========================= */
+
+#keyboard {
+    width: 100%;
+    max-width: 500px;
+
+    margin: 25px auto 0;
+}
+
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+
+    gap: 5px;
+    margin-bottom: 6px;
+}
+
+
+.key {
+    border: none;
+
+    background: #d8d6d1;
+    color: #2f2f2f;
+
+    border-radius: 5px;
+
+    min-width: 30px;
+    height: 48px;
+
+    padding: 0 8px;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+}
+
+
+.key:active {
+    transform: scale(0.95);
+}
+
+
+.key.wide {
+    min-width: 55px;
+    font-size: 10px;
+}
+
+
+/* =========================
+   REVEAL PAGE
+   ========================= */
+
+.reveal-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px 25px;
+}
+
+
+.reveal-content {
+    max-width: 600px;
+}
+
+
+.reveal-text {
+    font-size: 22px;
+    line-height: 1.8;
+
+    margin: 0 0 10px;
+}
+
+
+.continue-button {
+    margin-top: 45px;
+
+    background: transparent;
+
+    border: 1px solid #777;
+
+    color: #444;
+
+    padding: 12px 25px;
+
+    border-radius: 30px;
+
+    font-family: Georgia, serif;
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.continue-button:hover {
+    background: #2f2f2f;
+    color: white;
+}
+
+
+/* =========================
+   LETTER PAGE
+   ========================= */
+
+.letter-page {
+    min-height: 100vh;
+
+    padding: 70px 25px;
+}
+
+
+.letter-content {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+.letter-content h1 {
+    text-align: center;
+
+    font-size: 34px;
+    font-weight: normal;
+
+    line-height: 1.4;
+
+    margin-bottom: 50px;
+}
+
+
+.letter-content p {
+    margin-bottom: 30px;
+}
+
+
+.signature {
+    margin-top: 45px;
+
+    text-align: right;
+}
+
+
+/* HIDDEN */
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================
+   PHONE
+   ========================= */
+
+@media (max-width: 500px) {
+
+    .game {
+        padding-top: 45px;
+    }
+
+
+    .game h1 {
+        font-size: 32px;
+    }
+
+
+    #board {
+        width: 280px;
+    }
+
+
+    .box {
+        width: 50px;
+        height: 50px;
+    }
+
+
+    #keyboard {
+        padding: 0 5px;
+    }
+
+
+    .keyboard-row {
+        gap: 3px;
+    }
+
+
+    .key {
+        flex: 1;
+
+        min-width: 0;
+
+        height: 48px;
+
+        padding: 0;
+
+        font-size: 12px;
+    }
+
+
+    .key.wide {
+        flex: 1.5;
+
+        min-width: 0;
+    }
+
+
+    .reveal-text {
+        font-size: 19px;
+    }
+
+
+    .letter-page {
+        padding: 50px 22px;
+    }
+
+
+    .letter-content {
+        font-size: 16px;
+    }
+
+
+    .letter-content h1 {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+}
