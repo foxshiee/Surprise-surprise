@@ -7,7 +7,7 @@ body {
     margin: 0;
     background: #a2d6ed;
     color: #2f2f2f;
-    font-family: Georgia, serif;
+    font-family: Sofia Pro, serif;
 }
 
 
@@ -255,7 +255,7 @@ body {
 
 
 .signature {
-    margin-top: 45px;
+    margin-top: 40px;
 
     text-align: right;
 }
