@@ -34,7 +34,9 @@ body {
 }
 
 
-/* WORDLE BOARD */
+/* =========================
+   WORDLE BOARD
+========================= */
 
 #board {
     width: 300px;
@@ -62,7 +64,9 @@ body {
 }
 
 
-/* WORDLE COLOURS */
+/* =========================
+   WORDLE COLOURS
+========================= */
 
 .correct {
     background: #8caa82;
@@ -83,7 +87,9 @@ body {
 }
 
 
-/* MESSAGE */
+/* =========================
+   MESSAGE
+========================= */
 
 #message {
     min-height: 25px;
@@ -167,7 +173,9 @@ body {
 }
 
 
-/* BUTTON */
+/* =========================
+   BUTTON
+========================= */
 
 .continue-button {
     margin-top: 45px;
@@ -229,9 +237,21 @@ body {
     margin-bottom: 30px;
 }
 
+
+/* =========================
+   FUTURE MRS SIGNATURE
+========================= */
+
 .signature {
-    margin-top: 45px;
+    margin-top: 55px;
     text-align: right;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.future-name {
+    font-family: "Brush Script MT", "Segoe Script", cursive;
+    font-size: 28px;
 }
 
 
@@ -306,7 +326,12 @@ body {
     }
 
     .signature {
-        font-size: 15px;
+        font-size: 14px;
+        margin-top: 45px;
+    }
+
+    .future-name {
+        font-size: 25px;
     }
 
 }
