@@ -1,29 +1,28 @@
 const secretWord = "DREAM";
 
 const board = document.getElementById("board");
-
 const message = document.getElementById("message");
 
 const gamePage = document.getElementById("gamePage");
-
 const revealPage = document.getElementById("revealPage");
-
 const letterPage = document.getElementById("letterPage");
+const questPage = document.getElementById("questPage");
 
 const continueButton =
     document.getElementById("continueButton");
 
+const questButton =
+    document.getElementById("questButton");
+
 
 let currentRow = 0;
-
 let currentGuess = "";
-
 let gameOver = false;
 
 
 /* =========================
    CREATE WORDLE BOARD
-   ========================= */
+========================= */
 
 for (let i = 0; i < 30; i++) {
 
@@ -37,26 +36,22 @@ for (let i = 0; i < 30; i++) {
 
 /* =========================
    ADD LETTER
-   ========================= */
+========================= */
 
 function addLetter(letter) {
 
     if (gameOver) return;
 
-
     if (currentGuess.length < 5) {
 
         currentGuess += letter;
 
-
         const boxes =
             document.querySelectorAll(".box");
-
 
         const boxIndex =
             currentRow * 5 +
             currentGuess.length - 1;
-
 
         boxes[boxIndex].textContent = letter;
     }
@@ -65,27 +60,23 @@ function addLetter(letter) {
 
 /* =========================
    DELETE LETTER
-   ========================= */
+========================= */
 
 function deleteLetter() {
 
     if (gameOver) return;
-
 
     if (currentGuess.length > 0) {
 
         currentGuess =
             currentGuess.slice(0, -1);
 
-
         const boxes =
             document.querySelectorAll(".box");
-
 
         const boxIndex =
             currentRow * 5 +
             currentGuess.length;
-
 
         boxes[boxIndex].textContent = "";
     }
@@ -94,7 +85,7 @@ function deleteLetter() {
 
 /* =========================
    CHECK GUESS
-   ========================= */
+========================= */
 
 function checkGuess() {
 
@@ -114,11 +105,12 @@ function checkGuess() {
         document.querySelectorAll(".box");
 
 
+    /* CHECK EACH LETTER */
+
     for (let i = 0; i < 5; i++) {
 
         const box =
             boxes[currentRow * 5 + i];
-
 
         const letter =
             currentGuess[i];
@@ -139,19 +131,20 @@ function checkGuess() {
         else {
 
             box.classList.add("wrong");
+
         }
+
     }
 
 
     /* =========================
        CORRECT ANSWER
-       ========================= */
+    ========================= */
 
     if (currentGuess === secretWord) {
 
         message.textContent =
             "You found it. ❤️";
-
 
         gameOver = true;
 
@@ -176,18 +169,17 @@ function checkGuess() {
 
     /* =========================
        WRONG ANSWER
-       ========================= */
+    ========================= */
 
     message.textContent =
         "Not quite... try again.";
-
 
     currentRow++;
 
     currentGuess = "";
 
 
-    /* SIX GUESSES */
+    /* SIX FAILED ATTEMPTS */
 
     if (currentRow === 6) {
 
@@ -201,12 +193,11 @@ function checkGuess() {
 
 /* =========================
    COMPUTER KEYBOARD
-   ========================= */
+========================= */
 
 document.addEventListener(
     "keydown",
     function(event) {
-
 
         if (event.key === "Enter") {
 
@@ -214,19 +205,18 @@ document.addEventListener(
 
         }
 
-
         else if (event.key === "Backspace") {
 
             deleteLetter();
 
         }
 
-
         else if (/^[a-zA-Z]$/.test(event.key)) {
 
             addLetter(
                 event.key.toUpperCase()
             );
+
         }
 
     }
@@ -235,7 +225,7 @@ document.addEventListener(
 
 /* =========================
    PHONE KEYBOARD
-   ========================= */
+========================= */
 
 const keys =
     document.querySelectorAll(".key");
@@ -243,11 +233,9 @@ const keys =
 
 keys.forEach(function(key) {
 
-
     key.addEventListener(
         "click",
         function() {
-
 
             const value =
                 key.textContent;
@@ -259,17 +247,16 @@ keys.forEach(function(key) {
 
             }
 
-
             else if (value === "⌫") {
 
                 deleteLetter();
 
             }
 
-
             else {
 
                 addLetter(value);
+
             }
 
         }
@@ -279,8 +266,8 @@ keys.forEach(function(key) {
 
 
 /* =========================
-   CONTINUE TO LETTER
-   ========================= */
+   REVEAL → LETTER
+========================= */
 
 continueButton.addEventListener(
     "click",
@@ -289,6 +276,27 @@ continueButton.addEventListener(
         revealPage.classList.add("hidden");
 
         letterPage.classList.remove("hidden");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+
+
+/* =========================
+   LETTER → LJUBLJANA QUEST
+========================= */
+
+questButton.addEventListener(
+    "click",
+    function() {
+
+        letterPage.classList.add("hidden");
+
+        questPage.classList.remove("hidden");
 
         window.scrollTo({
             top: 0,
