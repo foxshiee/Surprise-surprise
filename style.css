@@ -212,13 +212,15 @@ body {
 
     margin: 0 auto;
 
-    font-size: 18px;
-    line-height: 1.8;
+    font-family: "Poppins", sans-serif;
+    font-size: 17px;
+    line-height: 1.9;
 }
 
 .letter-content h1 {
     text-align: center;
 
+    font-family: Georgia, serif;
     font-size: 34px;
     font-weight: normal;
 
@@ -241,6 +243,7 @@ body {
 
     text-align: right;
 
+    font-family: Georgia, serif;
     font-size: 14px;
 
     line-height: 1.6;
@@ -318,6 +321,7 @@ body {
 
     .letter-content {
         font-size: 16px;
+        line-height: 1.85;
     }
 
     .letter-content h1 {
